@@ -3,6 +3,7 @@
 from django import forms  # importa o módulo de formulários do Django
 from .models import Post  # importa  modelo Post
 
+
 class PostForm(forms.ModelForm):  # modelo do formulario
 
     class Meta:  # classe que diz qual modelo usar para criar o formulario

@@ -9,7 +9,6 @@ urlpatterns = [
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
 ]
 
-
 # Entendendo a linha path('post/<int:pk>/', views.post_detail, name='post_detail')
 # A parte post/<int:pk>/ especifica um padrão de URL – vamos explicar:
 
