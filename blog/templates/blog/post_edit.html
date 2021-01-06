@@ -1,0 +1,12 @@
+<!-- template com os campos do formulario -->
+
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>New post</h2> <!-- titulo da pág que aparecerá logo abaixo do nome do blog -->
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }} <!-- exibe o formulario-->
+        <button type="submit" class="save btn btn-default">Save</button>  <!-- botão para salvar o formulario -->
+    </form>
+{% endblock %}

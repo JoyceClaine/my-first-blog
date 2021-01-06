@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'), #cria uma URL no arquivo blog/urls.py que aponta para uma view chamada post_detail, que vai nos mostrar o post completo.
+    path('post/new/', views.post_new, name='post_new'), # depois de criar a URL é preciso criar a view, do contrário vc verá o erro AttributeError
+    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
 ]
 
 

@@ -16,6 +16,10 @@ Templates ajudam quando você quer usar a mesma informação ou layout em mais d
 
     <body>
         <div class="page-header">
+            {% if user.is_authenticated %}  <!-- apresenta o link somente para os usuários que estiverem logados como admin -->
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a> <!-- após criar
+                essa URL é preciso adicionar a url no arquivo blog/url.py do contrário vc verá o erro NoReverseMatch-->
+            {% endif %}
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
 
