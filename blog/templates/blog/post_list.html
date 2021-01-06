@@ -1,27 +1,21 @@
 <!--O diretório template criará as pág que apareceram no site-->
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog Django Girls</title>
-</head> <!--Head contém informações sobre o documento que não são mostradas na tela - configurações da pág-->
-<body>
 
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+{% extends 'blog/base.html' %}  <!-- para EXTENDER os templates, ou seja, vai juntar os arquivos base.html e post.html-->
 
-        {% for post in posts %}
-            <div>
-                <p>published: {{ post.published_date }}</p>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
+{% block content %} <!-- para inserir BLOCOS de conteudo na pág -->
+    {% for post in posts %} <!-- um FOR para exibir os posts da pág -->
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
             </div>
-        {% endfor %}
-
-</body>  <!--Body contém tudo o que é exibido como parte de uma página da web - conteudo da pág-->
-</html>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2> <!-- para criar uma URL usando template do django-->
+            <!-- o Django espera uma URL no arquivo blog/urls.py com o nome definido como name='post_detail'-->
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
 
 
 <!-- Para personalizar um template

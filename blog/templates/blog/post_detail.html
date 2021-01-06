@@ -1,0 +1,18 @@
+<!-- Template para os detalhes do post -->
+
+<!DOCTYPE html>
+
+
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}  <!-- um IF para conferir se a data de um post não está vazia -->
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endblock %}
